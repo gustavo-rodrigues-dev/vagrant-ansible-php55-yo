@@ -1,0 +1,13 @@
+---
+- name: Ruby | Install Ruby Development Headers
+  apt: pkg=ruby1.9.1-dev state=installed
+  tags: ruby
+
+- name: Ruby | Install Ruby Gems Package
+  apt: pkg=rubygems-integration state=installed
+  tags: ruby
+
+- name: Ruby | Install compass gem
+  gem: name=compass state=present user_install=no
+  sudo: yes
+  tags: ruby

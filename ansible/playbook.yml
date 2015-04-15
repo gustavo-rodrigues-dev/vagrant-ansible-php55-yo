@@ -1,0 +1,24 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+    web_server: apachephp
+    servername: project.local www.projet.local 192.168.33.99
+    timezone: America/Sao_Paulo
+  vars_files:
+    - vars/mysql.yml
+    - vars/common.yml
+    - [ "vars/apachephp.yml", "vars/ws_defaults.yml" ]
+  roles:
+    - init
+    - php5-cli
+    - apache
+    - php5
+    - mysql
+    - phpcommon
+    - php-pecl
+    - composer
+    - ruby
+    - nodejs
+    - yo
+    - app
