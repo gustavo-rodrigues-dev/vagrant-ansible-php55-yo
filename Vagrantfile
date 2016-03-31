@@ -24,11 +24,11 @@ end
 Vagrant.configure("2") do |config|
 
     config.vm.provider :virtualbox do |v|
-        v.name = "php55"
+        v.name = "agenciaxis"
         v.customize [
             "modifyvm", :id,
-            "--name", "php55",
-            "--memory", 512,
+            "--name", "agenciaxis",
+            "--memory", 1024,
             "--natdnshostresolver1", "on",
             "--cpus", 1,
         ]
@@ -36,7 +36,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.box = "ubuntu/trusty64"
     
-    config.vm.network :private_network, ip: "192.168.33.99"
+    config.vm.network :private_network, ip: "192.168.33.88"
     config.ssh.forward_agent = true
 
     #############################################################
@@ -50,14 +50,12 @@ Vagrant.configure("2") do |config|
             ansible.inventory_path = "ansible/inventories/dev"
             ansible.limit = 'all'
             ansible.extra_vars = {
-                private_interface: "192.168.33.99",
-                hostname: "php55"
+                private_interface: "192.168.33.88",
+                hostname: "agenciaxis"
             }
         end
     else
-        config.vm.provision :shell, path: "ansible/windows.sh", args: ["php55"]
+        config.vm.provision :shell, path: "ansible/windows.sh", args: ["agenciaxis"]
     end
-
-    
-    config.vm.synced_folder "../proj", "/var/www", type: "nfs"
+    config.vm.synced_folder "../proj", "/var/www/html/agenciaxis", type: "nfs"
 end

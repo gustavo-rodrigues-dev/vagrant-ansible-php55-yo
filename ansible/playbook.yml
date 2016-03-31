@@ -3,7 +3,7 @@
   sudo: true
   vars:
     web_server: apachephp
-    servername: project.local www.projet.local 192.168.33.99
+    servername: agenciaxis.local www.agenciaxis.local 192.168.33.88
     timezone: America/Sao_Paulo
   vars_files:
     - vars/mysql.yml

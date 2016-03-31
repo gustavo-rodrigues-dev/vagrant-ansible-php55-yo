@@ -1,6 +1,6 @@
 ---
     php_ppa: php5
-    doc_root: /var/www
+    doc_root: /var/www/html/agenciaxis/public
     sys_packages: ["vim","git","imagemagick"]
     dist: precise
     php_packages: ["php5-curl","php5-gd","php5-imap","php5-mcrypt","php5-xdebug","php5-mysql","php5-json"]
